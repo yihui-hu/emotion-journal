@@ -1,8 +1,7 @@
 {
-  "name": "vosk-browser-react-demo",
+  "name": "emotion-journal",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ccoreilly.github.io/vosk-browser",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@types/node": "^18.7.15",
