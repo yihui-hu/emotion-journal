@@ -1,0 +1,1 @@
+Fork of ccoreilly's (Ciaran O'Reilly) Vosk-Browser React build (https://github.com/ccoreilly/vosk-browser).

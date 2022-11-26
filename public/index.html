@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f5f5" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <script src="https://download.affectiva.com/js/3.2.1/affdex.js"></script>
+  <title>Emotion Journal</title>
+</head>
+
+<script>
+  // Make this global so callback functions can access
+  var detector
+
+  window.onload = function () {
+    // SDK Needs to create video and canvas nodes in the DOM in order to function
+    // Here we are adding those nodes a predefined div.
+    let divRoot = document.getElementById("affdex_elements")
+
+    let width = 640;
+    let height = 480;
+
+    //Construct a CameraDetector and specify the image width / height and face detector mode.
+    detector = new affdex.CameraDetector(divRoot, width, height, affdex.FaceDetectorMode.LARGE_FACES);
+
+    //Enable detection of all Expressions, Emotions and Emojis classifiers.
+    detector.detectAllEmotions();
+    detector.detectAllExpressions();
+    detector.detectAllEmojis();
+    detector.detectAllAppearance();
+
+    //Add a callback to notify when the detector is initialized and ready for runing.
+    detector.addEventListener("onInitializeSuccess", function () {
+      console.log("The detector reports initialized");
+    });
+
+    //Add a callback to notify when camera access is allowed
+    detector.addEventListener("onWebcamConnectSuccess", function () {
+      console.log("Webcam access allowed");
+    });
+
+    //Add a callback to notify when camera access is denied
+    detector.addEventListener("onWebcamConnectFailure", function () {
+      console.log("Webcam denied");
+      console.log("Webcam access denied");
+    });
+
+    //Add a callback to notify when detector is stopped
+    detector.addEventListener("onStopSuccess", function () {
+      console.log("The detector reports stopped");
+    });
+
+    //Add a callback to receive the results from processing an image.
+    //The faces object contains the list of the faces detected in an image.
+    //Faces object contains probabilities for all the different expressions, emotions and appearance metrics
+    detector.addEventListener("onImageResultsSuccess", function (faces, image, timestamp) {
+      document.getElementById("results").innerHTML = ""
+      document.getElementById("emotions-text").innerHTML = ""
+      if (faces.length > 0) {
+        document.getElementById("results").innerHTML = "You're feeling " + faces[0].emojis.dominantEmoji + " today";
+        if (document.getElementById("results").innerHTML != "") {
+          document.getElementById("emotions-text").innerHTML = "You're feeling " + faces[0].emojis.dominantEmoji + " today";
+          onStop();
+        }
+      }
+    });
+  }
+
+  //function executes when Start button is pushed.
+  function onStart() {
+    document.getElementById("face-detection").style.display = "none";
+    document.getElementById("advice").style.display = "none";
+    if (detector && !detector.isRunning) {
+      document.getElementById("start").innerHTML = "Reading emotion..."
+      document.getElementById("results").innerHTML = ""
+      document.getElementById("emotions-text").innerHTML = ""
+      detector.start();
+    }
+  }
+
+  //function executes when the Stop button is pushed.
+  function onStop() {
+    document.getElementById("face-detection").style.display = "grid";
+    if (detector && detector.isRunning) {
+      document.getElementById("start").innerHTML = "Read emotion using camera"
+      detector.removeEventListener();
+      if (document.getElementById("results").innerHTML == "") {
+        document.getElementById("results").innerHTML = "Unable to read emotions. Please try again."
+      }
+      detector.stop();
+    }
+  };
+
+  function log(node_name, msg) {
+    document.getElementById(node_name).innerHTML += "<span>" + msg + "</span><br/>"
+  }
+
+</script>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root">
+  </div>
+  <audio id="audio-player" />
+</body>
+
+</html>

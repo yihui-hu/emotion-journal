@@ -1,0 +1,205 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#audio-player {
+  display: none;
+}
+
+.wrapper {
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+  margin-block: 5vw;
+  display: grid;
+  place-items: center;
+}
+
+.wrapper-header {
+  font-size: 2vw;
+  font-weight: 900;
+}
+
+.wrapper-header-mobile {
+  font-size: 3vh;
+  font-weight: 900;
+}
+
+.mic-results {
+  margin-top: 5vw;
+  width: 75vw;
+  height: 100vh;
+  background-color: white;
+  padding: 4vw;
+  overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+
+.mic-results-mobile {
+  margin-top: 3vw;
+  width: 92vw;
+  height: 80vh;
+  background-color: white;
+  padding: 3vh;
+  overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+
+.microphone-button {
+  margin-left: -16px;
+  margin-top: 1.5vw;
+  margin-bottom: 2vw;
+}
+
+.microphone-button-text {
+  font-weight: 600;
+  font-size: max(1.2vh, 1vw);
+}
+
+.microphone-button-mobile {
+  margin-left: -16px;
+  margin-top: 1.5vw;
+  margin-bottom: 2vw;
+}
+
+.microphone-button-text-mobile {
+  font-weight: 600;
+  font-size: 1.5vh;
+}
+
+.page-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date h3,
+.emotions h3 {
+  font-size: max(1.3vh, 1.2vw);
+  font-weight: 600;
+  color: rgb(185, 185, 185);
+}
+
+.date-mobile h3,
+.emotions-mobile h3 {
+  font-size: 1.7vh;
+  font-weight: 600;
+  color: rgb(185, 185, 185); 
+}
+
+.face-detection {
+  width: 25vw;
+  height: 25vw;
+  border: 0.4vw solid rgb(220, 220, 220);
+  border-style: dotted;
+  border-radius: 2vw;
+  margin-top: 0.5vw;
+  margin-bottom: 2vw;
+  display: grid;
+  place-items: center;
+  font-size: 9vw;
+  color:rgb(224, 224, 224);
+}
+
+.face-detection-mobile {
+  width: 30vh;
+  height: 30vh;
+  border: 0.4vw solid rgb(220, 220, 220);
+  border-style: dotted;
+  border-radius: 2vw;
+  margin-top: 0.5vw;
+  margin-bottom: 2vw;
+  display: grid;
+  place-items: center;
+  font-size: 12vh;
+  color:rgb(224, 224, 224);
+}
+
+.camera_div {
+  display: grid;
+  place-items: center;
+}
+
+.start {
+  font-size: 1.2vw;
+  border: 0px solid black;
+  padding-block: 0.5vw;
+  padding-inline: 1.5vw;
+  border-radius: 100px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.start:hover {
+  background-color:rgb(30, 30, 30);
+}
+
+.start-mobile {
+  font-size: 2vh;
+  border: 0px solid black;
+  padding-block: 1vw;
+  padding-inline: 4vw;
+  margin-top: 2vh;
+  border-radius: 100px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.start-mobile:hover {
+  background-color:rgb(30, 30, 30);
+}
+
+.results {
+  font-weight: 600;
+  margin-top: 3vw;
+  margin-bottom: -1vw;
+  font-size: 1.2vw;
+}
+
+.results-mobile {
+  font-weight: 600;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+  font-size: 4vw;
+}
+
+#affdex_elements {
+  display: grid;
+  place-items: center;
+}
+
+#face_video {
+  width: 80%;
+  height: 80%;
+}
+
+#face_video_canvas {
+  display: none;
+}
+
+.advice {
+  max-width: 42%;
+  margin-top: 1.5vw;
+  font-size: 1.1vw;
+  margin-bottom: -1.5vw;
+}
+
+.advice-mobile {
+  max-width: 30vh;
+  margin-top: 4vw;
+  font-weight: 600;
+  font-size: 1.5vh;
+  margin-bottom: -1.5vw;
+}
