@@ -1,1 +1,1 @@
-Utilises code adapted from @ccoreilly's Vosk-Browser React build (https://github.com/ccoreilly/vosk-browser), as well as from Professor Robert Jacobs' Affectiva SDK demo (https://codepen.io/SoxFace/pen/rGqKWB)
+Utilises code adapted from @ccoreilly's Vosk-Browser React build (https://github.com/ccoreilly/vosk-browser), as well as from Professor Robert Jacobs' Affectiva SDK demo (http://www.cs.tufts.edu/~jacob/86/lecture/128_Affectiva:.html)
