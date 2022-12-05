@@ -203,3 +203,58 @@ code {
   font-size: 1.5vh;
   margin-bottom: -1.5vw;
 }
+
+#editText {
+  width: 100%;
+  height: 70vh;
+  font-size: 1.1vw;
+}
+
+#edit-button {
+  height: 100%;
+  border: 0px solid black;
+  border-radius: 1vw;
+  padding-inline: 2vw;
+  padding-block: 0.3vw;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#edit-button:hover {
+  background-color:rgb(216, 216, 216);
+}
+
+#edit-button:active {
+  background-color:rgb(65, 65, 65);
+  color: white;
+}
+
+.disclaimer {
+  background-color: rgb(212, 233, 240);
+  padding: 10px;
+  border-radius: 1vw;
+  font-weight: 500;
+  font-size: 1vw;
+  margin-bottom: 1vw;
+}
+
+#savepdf {
+  border: 0px solid black;
+  border-radius: 1vw;
+  padding-inline: 2vw;
+  padding-block: 0.3vw;
+  cursor: pointer;
+  position: absolute;
+  right: 16.5vw;
+  bottom: -75vh;
+  transition: 0.2s ease;
+}
+
+#savepdf:hover {
+  background-color:rgb(216, 216, 216);
+}
+
+#savepdf:active {
+  background-color:rgb(65, 65, 65);
+  color: white;
+}

@@ -21,6 +21,10 @@
     // Here we are adding those nodes a predefined div.
     let divRoot = document.getElementById("affdex_elements")
 
+    // setting emoji to a localvariable
+    let emoji = 0
+    
+    
     let width = 640;
     let height = 480;
 
@@ -62,10 +66,22 @@
       document.getElementById("emotions-text").innerHTML = ""
       if (faces.length > 0) {
         document.getElementById("results").innerHTML = "You're feeling " + faces[0].emojis.dominantEmoji + " today";
-        if (document.getElementById("results").innerHTML != "") {
-          document.getElementById("emotions-text").innerHTML = "You're feeling " + faces[0].emojis.dominantEmoji + " today";
-          onStop();
+        emoji = faces[0].emojis.dominantEmoji;
+        document.getElementById("face-detection").innerHTML = emoji;
+        switch(emoji) {
+          case('😐'):
+            document.body.style.backgroundColor = "#F5F5DC";
+            break
+          case('☺'):
+            document.body.style.backgroundColor = "yellow";
+            break
+          case('😡'):
+            document.body.style.backgroundColor = "red";
+            break;
+          case('🙁'):
+            document.body.style.backgroundColor = "blue";
         }
+        onStop();
       }
     });
   }
