@@ -238,6 +238,18 @@ code {
   margin-bottom: 1vw;
 }
 
+.savepdfwrapper {
+  display: grid;
+  place-items: end;
+  height: 75vh;
+}
+
+.savepdfwrapper-mobile {
+  display: grid;
+  place-items: end;
+  height: 63vh;
+}
+
 #savepdf {
   border: 0px solid black;
   border-radius: 1vw;
@@ -245,8 +257,6 @@ code {
   padding-block: 0.3vw;
   cursor: pointer;
   position: absolute;
-  right: 16.5vw;
-  bottom: -75vh;
   transition: 0.2s ease;
 }
 

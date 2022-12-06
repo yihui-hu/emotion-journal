@@ -115,34 +115,28 @@ export const Recognizer: React.FunctionComponent = () => {
           <div className={isDesktop ? "emotions" : "emotions-mobile"}>
             <h3 id="emotions-text"></h3>
           </div>
-          {/* <div className='disclaimer'>
-            <div style={{  textAlign: 'center', marginBottom: '10px' }}>USAGE</div>
-            Wait for the text-to-speech to register <br></br>
-            Only edit after you are done talking <br></br>
-          </div> */}
         </div>
         <div>
           <div className={isDesktop ? "microphone-button" : "microphone-button-mobile"} style={{display: 'flex', justifyContent: 'space-between'}}>
           <Microphone recognizer={recognizer} loading={loading} ready={ready} />
-          <button onClick={edit} id="edit-button">Edit</button>
+          <button onClick={edit} id="edit-button">{visible ? "Save Changes" : "Edit"}</button>
           </div>
         </div>
-        {utterancesVisible && (wordsString.split(' ')).map((x, index) => (
+        { utterancesVisible && (wordsString.split(' ')).map((x, index) => (
           <Word key={index} confidence={1}>{x + " "}</Word>
-        ))}
-        {utterancesVisible && utterances.map((utt, uindex) =>
+        )) }
+        { utterancesVisible && utterances.map((utt, uindex) =>
           utt?.result?.map((word, windex) => (
-            <Word
-              key={`${uindex}-${windex}`}
-              confidence={word.conf}
-            >
+            <Word key={`${uindex}-${windex}`} confidence={word.conf}>
               {word.word + " "}
             </Word>
           ))
-        )}
+        ) }
         { utterancesVisible && <span key="partial">{partial}</span> }
         { visible && <textarea id="editText" value={wordsString} onChange={handleEditChange}></textarea> }
-        <button onClick={save} id="savepdf">Save as PDF</button>
+        <div className={isDesktop ? "savepdfwrapper" : "savepdfwrapper-mobile"}>
+          <button onClick={save} id="savepdf">Save as PDF</button>
+        </div>
       </div>
     </Wrapper>
   );
